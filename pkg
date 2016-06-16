@@ -1,0 +1,32 @@
+#!/usr/bin/env node
+
+var fs = require('fs');
+
+var argv = process.argv,
+    variable = argv[2],
+    param = argv.slice(3),
+    source, output;
+
+for (var i = 0, l = param.length; i < l; i += 2) {
+    if (param[i][0] == '-') {
+        switch(param[i].slice(1)) {
+            case 's':
+                source = param[i + 1];
+                break;
+            case 'o':
+                output = param[i + 1];
+                break;
+        }
+    }
+}
+
+if (source) {
+    if (!output) {
+        output = source.replace('.js', '.pkg.js');
+    }
+    var fixCode = fs.readFileSync(__dirname + '/fix.js', 'utf-8').replace(/Variable/g, variable),
+        sourceCode = '(function(){\n\t' + (fs.readFileSync(source, 'utf-8') + '\n\n' + fixCode).replace(/\n/g, '\n\t') + '\n})();';
+    fs.writeFileSync(output, sourceCode, 'utf-8');
+} else {
+    console.log('源文件路径不能为空！');
+}

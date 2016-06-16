@@ -1,0 +1,17 @@
+{
+    "name": "pkgjs",
+    "version": "0.0.1",
+    "description": "将JS代码打包成兼容 AMD/CMD/Browser 的形式",
+    "bin": {
+        "pkgjs": "pkgjs"
+    },
+    "author": {
+        "name": "edwon.lin",
+        "email": "edwon.lim@gmail.com",
+        "url": "http://ymfe.tech"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git@github.com:EdwonLim/pkgjs.git"
+    }
+}
