@@ -2,8 +2,12 @@
     "name": "pkgjs",
     "version": "0.0.1",
     "description": "将JS代码打包成兼容 AMD/CMD/Browser 的形式",
+    "homepage": "https://github.com/EdwonLim/pkgjs",
     "bin": {
         "pkgjs": "pkgjs"
+    },
+    "engines": {
+        "node": ">=4"
     },
     "author": {
         "name": "edwon.lin",
